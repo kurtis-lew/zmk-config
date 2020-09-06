@@ -32,8 +32,8 @@
 			bindings = <
 &trans   &trans    &trans    &trans    &trans     &trans                      &trans    &kp CRRT  &kp KMLT  &kp LPRN  &kp RPRN  &trans
 &reset   &trans    &kp UARW  &kp HOME  &kp END    &kp LPRN                    &kp RPRN  &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &bootloader
-&trans   &kp LARW  &kp DARW  &kp RARW  &trans	  &kp LBKT                    &kp RBKT  &kp NUM_4 &kp NUM_5 &kp NUM_6 &kp KPLS  &trans
-&trans   &trans    &trans    &trans    &trans     &kp BSLH  &trans   &trans   &kp PIPE  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp KMIN  &trans
+&trans   &kp LARW  &kp DARW  &kp RARW  &kp PGUP	  &kp LBKT                    &kp RBKT  &kp NUM_4 &kp NUM_5 &kp NUM_6 &kp KPLS  &trans
+&trans   &trans    &trans    &trans    &kp PGDN   &kp BSLH  &trans   &trans   &kp PIPE  &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp KMIN  &trans
                    		     		   &trans     &trans    &trans   &trans   &kp DOT   &kp NUM_0
 			>;
 		};
