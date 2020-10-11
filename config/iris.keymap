@@ -9,7 +9,7 @@
 			compatible = "zmk,behavior-hold-tap";
             label = "FAST_TAP";
             #binding-cells = <2>;
-            tapping_term_ms = <80>;
+            tapping_term_ms = <100>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
 		};
