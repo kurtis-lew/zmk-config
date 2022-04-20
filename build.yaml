@@ -20,4 +20,6 @@ include:
   - board: nice_nano
     shield: two_percent_milk
   - board: nice_nano
+    shield: two_percent_toggle
+  - board: nice_nano
     shield: settings_reset

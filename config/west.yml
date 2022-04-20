@@ -2,10 +2,12 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: zmkfirmware-kurtis
+      url-base: https://github.com/kurtis-lew
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: zmkfirmware-kurtis
+      revision: toggleswitch_2.0_PR
       import: app/west.yml
   self:
     path: config
