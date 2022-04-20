@@ -1,0 +1,128 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define DEFAULT 0
+#define NAVI    1
+#define FUNC	2
+#define GAME	3
+#define BLUE    4
+
+#define NONE 0
+
+
+/ {
+	behaviors {
+
+		ht: hold_tap{
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick_tap_ms = <150>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+
+		gm: gamer_mode {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LAYER_DANCE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RALT>, <&none>,  <&tog 3>;
+        };
+
+        qm: quot_min {
+            compatible = "zmk,behavior-tap-dance";
+            label = "QUOT_MIN";
+            #binding-cells = <0>;
+            tapping-term-ms = <180>;
+            bindings = <&kp SQT>, <&kp MINUS>;
+        };
+    };
+
+	keymap {
+		compatible = "zmk,keymap";
+
+		default_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6    |  7    |  8    |  9   |   0   |  BKSP |
+// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y    |  U    |  I    |  O   |   P   |  DEL  |
+// |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H    |  J    |  K    |  L   |   ;   |  QM   |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  ENTER |  | SPACE |  N    |  M    |  ,    |  .   |   /   |  NAVI |
+//                     		  | GUI  | ALT  |  ENTER |  | SPACE |AltGame| MEDIA |
+			bindings = <
+&ht ESC GRAVE &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                        &kp N6    &kp N7    &kp N8     &kp N9    &kp N0    &kp BSPC
+&kp TAB  	  &kp Q     &kp W     &kp E     &kp R     &kp T                         &kp Y     &kp U     &kp I      &kp O     &kp P     &kp DEL
+&kp LCTRL 	  &kp A     &kp S     &kp D     &kp F     &kp G                         &kp H     &kp J     &kp K      &kp L     &kp SEMI  &qm
+&kp LSHFT 	  &kp Z     &kp X     &kp C     &kp V     &kp B    &kp RET   &kp SPACE  &kp N     &kp M     &kp COMMA  &kp DOT   &kp FSLH  &mo 1
+                   			 		        &kp LGUI  &kp LALT &kp RET   &kp SPACE  &gm       &mo 2
+			>;
+		};
+
+		navi_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |       |     |     |      |      |      |                   |      |       |       |       |       |       |
+// |       |     |     |      |      |      |                   |      |       |  UP   |       |       |       |
+// |       |     |  -  |  =   |  [   |  ]   |                   |      |  LEFT | DOWN  | RIGHT |       |       |
+// |       |     |     |      |  \   |  "|" |       |   |       |      |       |       |       |       |       |
+//                            |      |      |       |   |       |      |       |
+			bindings = <
+&trans   &trans    &trans    &trans    &trans     &trans                        &trans     &trans    &trans     &trans     &trans  &trans
+&trans   &trans    &trans    &trans    &trans     &trans                        &trans     &trans    &kp UP     &trans     &trans  &trans
+&trans   &trans    &trans    &kp EQUAL &kp LBKT   &kp RBKT                      &trans     &kp LEFT  &kp DOWN   &kp RIGHT  &trans  &trans
+&trans   &trans    &trans    &trans    &kp BSLH   &trans      &trans   &trans   &trans     &trans    &trans     &trans     &trans  &trans
+                   		     		   &trans     &kp HOME    &trans   &trans   &kp END    &trans
+			>;
+		};
+
+		func_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |       |
+// |       |     |     |      |      |  F11 |                   |  F12 |       |       |      |       |       |
+// |       |     |     |      |      |      |                   |      |       |  MPRV | MPLY |  MNXT |       |
+// |       |     |     |      |      |      | SPACE |   | ENTER |      |       |       |      |       | BLUE  |
+//                            |      |      | SPACE |   | ENTER |      |       |
+			bindings = <
+&trans     &kp F1     &kp F2     &kp F3     &kp F4    &kp F5                       &kp F6    &kp F7     &kp F8     &kp F9     &kp F10    &trans
+&trans     &trans     &trans     &trans     &trans    &kp F11                      &kp F12   &trans     &trans     &trans     &trans     &trans
+&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &kp C_PREV &kp C_PP   &kp C_NEXT &trans	 &trans
+&trans     &trans     &trans     &trans     &trans    &trans  &trans      &trans   &trans    &trans     &trans     &trans     &trans     &mo BLUE
+                   		     		        &trans    &trans  &trans      &trans   &trans    &trans
+			>;
+		};
+
+		gamer_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |     |      |      |      | SPACE |   | ENTER |      |       |       |      |       |       |
+//                            |      |      | SPACE |   | ENTER |      |       |
+			bindings = <
+&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans     &trans     &trans     &trans     &trans
+&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans     &trans     &trans     &trans     &trans
+&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans 	&trans     &trans     &trans	 &trans
+&trans     &trans     &trans     &trans     &trans    &trans  &kp SPACE  &kp RET   &trans    &trans     &trans     &trans     &trans     &trans
+                   		     		        &trans    &trans  &kp SPACE  &kp RET   &trans    &trans
+			>;
+		};
+
+		blue_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |     |      |      |      |                   |      |BT_PRV |BT_CLR |BT_NXT|       |       |
+// |       |     |     |      |      |      | ENTER |   | SPACE |      |       |       |      |       |       |
+//                            |      |      | ENTER |   | SPACE |      |       |
+			bindings = <
+&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans     &trans     &trans     &trans     &trans
+&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans     &trans     &trans     &trans     &trans
+&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &bt BT_PRV &bt BT_CLR &bt BT_NXT &trans	 &trans
+&trans     &trans     &trans     &trans     &trans    &trans  &trans  	  &trans   &trans    &trans     &trans     &trans     &trans     &trans
+                   		     		        &trans    &trans  &trans      &trans   &trans    &trans
+			>;
+		};
+
+	};
+};
