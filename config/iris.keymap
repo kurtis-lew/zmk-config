@@ -79,7 +79,7 @@ SHK(LSHIFT)   &kp Z     &kp X     &kp C     &kp V     &kp B    &kp RET   &kp SPA
 //                            |      |      |       |   |       |      |       |
 			bindings = <
 &trans   &trans    &trans    &trans    &trans     &trans                        &trans     &trans    &trans     &trans     &trans  &trans
-&trans   &trans    &trans    &trans    &trans     &trans                        &trans     &trans    &kp UP     &trans     &trans  &trans
+&trans   &trans    &trans    &trans    &trans     &trans                        &trans     &kp PSCRN &kp UP     &trans     &trans  &trans
 &trans   &trans    &trans    &kp EQUAL &kp LBKT   &kp RBKT                      &trans     &kp LEFT  &kp DOWN   &kp RIGHT  &trans  &trans
 &trans   &trans    &trans    &trans    &kp BSLH   &trans      &trans   &trans   &trans     &trans    &trans     &trans     &trans  &trans
                    		     		   &trans     &kp HOME    &trans   &trans   &kp END    &trans
