@@ -36,7 +36,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "QUOT_MIN";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <150>;
             bindings = <&kp SQT>, <&kp MINUS>;
         };
     };
