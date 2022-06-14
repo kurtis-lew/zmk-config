@@ -43,14 +43,14 @@
 
     };
 
-     keymap {
-         compatible = "zmk,keymap";
+    keymap {
+        compatible = "zmk,keymap";
  
-         default_layer {
-             bindings = <
-              &kp N0 
-              &hd
-             >;
-         };
-     };
- };
+        default_layer {
+            bindings = <
+                &kp N0 
+                &hd
+            >;
+        };
+    };
+};
