@@ -113,7 +113,7 @@ SHK(LSHIFT)   &kp Z     &kp X     &kp C     &kp V     &kp B    &kp RET   &kp SPA
 &trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans     &trans     &trans     &trans     &trans
 &trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans     &trans     &trans     &trans     &trans
 &trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans 	&trans     &trans     &trans	 &trans
-&trans     &trans     &trans     &trans     &trans    &trans  &kp SPACE  &kp RET   &trans    &trans     &trans     &trans     &trans     &trans
+&kp LSHIFT &trans     &trans     &trans     &trans    &trans  &kp SPACE  &kp RET   &trans    &trans     &trans     &trans     &trans     &trans
                    		     		        &trans    &trans  &kp SPACE  &kp RET   &trans    &trans
 			>;
 		};
