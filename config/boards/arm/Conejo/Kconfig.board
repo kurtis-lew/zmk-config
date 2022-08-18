@@ -1,0 +1,10 @@
+# Copyright (c) 2022 Kurtis Lew
+# SPDX-License-Identifier: MIT
+
+config BOARD_CONEJO_LEFT
+	bool "conejo_left"
+	depends on SOC_NRF52840_QIAA
+
+config BOARD_CONEJO_RIGHT
+	bool "conejo_right"
+	depends on SOC_NRF52840_QIAA

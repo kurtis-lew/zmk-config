@@ -1,0 +1,12 @@
+file_format: "1"
+id: conejo
+name: Conejo
+type: board
+arch: arm
+features:
+  - keys
+  - underglow
+outputs:
+  - usb
+  - ble
+url: https://github.com/kurtis-lew/Conejo
