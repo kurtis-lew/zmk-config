@@ -5,3 +5,15 @@
  */
 
 #include "conejo.dtsi"
+
+
+&kscan0 {
+	col-gpios
+		= <&gpio0 10 GPIO_ACTIVE_HIGH>
+		, <&gpio1 6 GPIO_ACTIVE_HIGH>
+		, <&gpio0 25 GPIO_ACTIVE_HIGH>
+		, <&gpio1 0 GPIO_ACTIVE_HIGH>
+		, <&gpio0 24 GPIO_ACTIVE_HIGH>
+		, <&gpio0 20 GPIO_ACTIVE_HIGH>
+	;
+};

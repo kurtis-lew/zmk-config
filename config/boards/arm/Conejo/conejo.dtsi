@@ -55,14 +55,6 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)                 RC(3,6) RC(3,7) 
 			, <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			, <&gpio0 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			;
-		col-gpios
-			= <&gpio0 10 GPIO_ACTIVE_HIGH>
-			, <&gpio1 6 GPIO_ACTIVE_HIGH>
-			, <&gpio0 25 GPIO_ACTIVE_HIGH>
-			, <&gpio1 0 GPIO_ACTIVE_HIGH>
-			, <&gpio0 24 GPIO_ACTIVE_HIGH>
-			, <&gpio0 20 GPIO_ACTIVE_HIGH>
-			;
 	};
 
 	ext-power {
