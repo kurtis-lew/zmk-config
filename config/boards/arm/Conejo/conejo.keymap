@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/bt.h>
 
@@ -124,10 +125,10 @@
 // |       |     |     |      |      |      | ENTER |   | SPACE |      |       |       |      |       |       |
 //                            |      |      | ENTER |   | SPACE |      |       |
 			bindings = <
-&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans     &trans     &trans     &trans     &trans
-&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans     &trans     &trans     &trans     &trans
-&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &bt BT_PRV &bt BT_CLR &bt BT_NXT &trans	 &trans
-&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans     &trans     &trans     &trans     &ext_power EP_TOG
+&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans     &trans          &trans                &trans     &trans
+&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans     &out OUT_TOG    &ext_power EP_TOG     &trans     &trans
+&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &bt BT_PRV &bt BT_CLR      &bt BT_NXT            &trans	  &trans
+&trans     &trans     &trans     &trans     &trans    &trans                       &trans    &trans     &trans          &trans                &trans     &trans
                    		     		        &trans    &trans  &trans      &trans   &trans    &trans
 			>;
 		};
