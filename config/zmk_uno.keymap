@@ -42,14 +42,14 @@
         layer_1 {
             label = "base";
             bindings = <
-                &kp A     &kp B     &kp A &kp B
-                &kp SPACE &kp DOT   &kp C &kp D
+                &kp A     &kp B     &bt BT_SEL 0 &bt BT_SEL 1
+                &kp SPACE &kp DOT   &none &none
 
                 /* &out OUT_USB &ble_zero &ble_one */
                 &none &none &none
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp N1 N2>;
         };
 
         layer_2 {
