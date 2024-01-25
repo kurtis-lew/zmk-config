@@ -19,6 +19,9 @@ config BOARD
 config ZMK_SPLIT
     default y
 
+config BT_CTLR
+	default BT
+
 config I2C
     bool
 	default y
@@ -27,14 +30,8 @@ config SPI
     bool
 	default y
 
-config BT_CTLR
-	default BT
-
-config ZMK_BLE
-	default y
-
-config ZMK_USB
-	default y
+config PINCTRL
+    default y
 
 if USB
 
@@ -49,7 +46,7 @@ endif # USB
 config ZMK_EXT_POWER
 	default y
 
-config MAX17048
+config ZMK_MAX17048
 	default y
 
 endif # BOARD_CONEJO_LEFT || BOARD_CONEJO_RIGHT

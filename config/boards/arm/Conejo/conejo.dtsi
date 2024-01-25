@@ -6,7 +6,7 @@
 
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
-
+#include "conejo-pinctrl.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/led/led.h>
 
@@ -45,7 +45,6 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)                 RC(3,6) RC(3,7) 
 
 	kscan0: kscan {
 		compatible = "zmk,kscan-gpio-matrix";
-		label = "KSCAN";
 
 		diode-direction = "col2row";
 		row-gpios
@@ -59,7 +58,6 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)                 RC(3,6) RC(3,7) 
 
 	ext-power {
 		compatible = "zmk,ext-power-generic";
-		label = "EXT_POWER";
 		control-gpios = <&gpio0 19 GPIO_ACTIVE_HIGH>;
 	};
 };
@@ -81,31 +79,29 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)                 RC(3,6) RC(3,7) 
 };
 
 &i2c0 {
-	compatible = "nordic,nrf-twi";
+	compatible = "nordic,nrf-twim";
     status = "okay";
-	sda-pin = <8>;
-	scl-pin = <41>;
+	pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default", "sleep";
+    clock-frequency = <100000>;
 
     fuel_gauge: max17048@36 {
-		compatible = "maxim,max17048";
+		compatible = "zmk,maxim-max17048";
         status = "okay";
-		label = "max17048";
         reg = <0x36>;
 	};
 };
 
 &spi1 {
 	compatible = "nordic,nrf-spim";
-	
 	status = "okay";
-    mosi-pin = <13>;
-    // Unused pins, needed for SPI definition, but not used by the ws2812 driver itself.
-    sck-pin = <4>;
-	miso-pin = <5>;
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
+    pinctrl-names = "default", "sleep";
 
 	led_strip: ws2812@0 {
 		compatible = "worldsemi,ws2812-spi";
-		label = "WS2812";
 
 		/* SPI */
 		reg = <0>; /* ignored, but necessary for SPI bindings */
@@ -123,7 +119,6 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)                 RC(3,6) RC(3,7) 
 	status = "okay";
 	cdc_acm_uart: cdc_acm_uart {
 		compatible = "zephyr,cdc-acm-uart";
-		label = "CDC_ACM_0";
 	};
 };
 
@@ -138,12 +133,10 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)                 RC(3,6) RC(3,7) 
 		#size-cells = <1>;
 
 		sd_partition: partition@0 {
-			label = "mbr";
 			reg = <0x00000000 0x00001000>;
 		};
 
 		code_partition: partition@1000 {
-			label = "code_partition";
 			reg = <0x00001000 0x000d3000>;
 		};
 
@@ -157,12 +150,10 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)                 RC(3,6) RC(3,7) 
 		 * if enabled.
 		 */
 		storage_partition: partition@d4000 {
-			label = "storage";
 			reg = <0x000d4000 0x00020000>;
 		};
 
 		boot_partition: partition@f4000 {
-			label = "adafruit_boot";
 			reg = <0x000f4000 0x0000c000>;
 		};
 	};
